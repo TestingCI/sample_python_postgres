@@ -1,7 +1,6 @@
 language: python
 
-build_image: 
-  - shippable/minv2
+build_image:  shippable/minv2
 
 python:
   - 2.7
@@ -21,9 +20,11 @@ script:
   - nosetests test.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
   - which python && coverage run --branch test.py
   - which python && coverage xml -o shippable/codecoverage/coverage.xml test.py
-  - echo $Foo
+  - echo $Foo and $env1
+  
 env:
- secure: LCY+q7gdonYbAO4akZAks+Cj8CxLiP00QH5kS9Ko6dni30x8r2CWhZJ2Sr2aSNjMG/mBthhRkBZVy1NA6lOQTTUJfUgXGRM+06On445bL7KxWVe5zkVC+hDsXN5EC/jkoHdqCbZ6Su8Y3JcYc0nijgIfC5NEd2OeZzXafpK6aZxtCOBQn4xSCIn7lakPTXeK1VqL7GyX8YTOJLuFSxIkeO9uOkcBHmDsw8rDoUIKN5WHfXO/CxCzPgwYLorMx+hDVpiGToIm0+cer1F6ETht+wet5+YYJeZnOsnMqDM8y1ZYxZypp/Atuzf/anLV0bsSTS9HoBRmos5Pwhzgb5JubQ==
+ - secure: XC/If5wCv4F1pEdOygQdDDW/x1eXWFadauyO7gMx0BjUdrF0rKUOZsl6vm4VemCddB4pbThvM5qhVg6rqur827WmKcDM3uqJJlLmJeXO7ODeBqNK6tGJo9O1Wc6KBV/ccATQACr2hxTh8Ghgd52+c9e20li4BFmKbhsndqw1Ati+ScTJaw4jxkB/UoMAWMQH2x3VxVHXGiG+9Ws8++WxXtFM71/e0XbVmV7V4c+a8VHBgWVYUQ990pdc9RYpPv7cCpmtoj6VDTI1FUkCWwhJRI5JPWWP4Nf/VF8va9MTsv+wYxBkzCyxahufIqQUOuwigle+WqkAHDT2sb68Wsk99A==
+ 
 notifications:
   email:
      - vidya@shippable.com
